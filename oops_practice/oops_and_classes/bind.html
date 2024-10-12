@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <div id="render" style="color: black;">
+
+    </div>
+    <button>Button Clicked</button>
+    
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:300"
+
+
+           document.querySelector('button').addEventListener('click',this.handleClicked.bind(this))
+
+        //    function kapil(){
+        //     console.log("Kapil")
+        //     console.log(this.server)
+        //    }
+        }
+        handleClicked(){
+            console.log("Button Clickedd")
+            console.log(this)
+            console.log(this.library)
+            const div=document.querySelector('#render')
+            div.textContent = this.library
+            
+
+        }
+
+        
+    
+    }
+    const app = new React()
+    // console.log(app)
+</script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myclass {
+            height: 150px;
+            width: 400px;
+            background-color: rgb(117, 102, 102);
+            display: flex;
+            
+        }
+        .text{
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding-left: 10px;
+        }
+        .btnstyle{
+            color: #212121;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body style="background-color: #2121;">
+    
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/devkapilmrt'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',requestURL)
+    let data
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4){
+            data = JSON.parse(this.responseText)
+            // console.log(data)
+            const name = data.name
+            // console.log(name)
+            const mydiv = document.createElement('div')
+            mydiv.className = 'myclass'
+            document.body.appendChild(mydiv)
+
+            
+    
+            const btn = document.createElement('button')
+            btn.className='btnstyle'
+            btn.innerText = "Get Deteils"
+            document.body.appendChild(btn)
+            btn.addEventListener('click', function(){
+            mydiv.innerHTML = `
+            <div class = 'imgclass'>
+            <img src='${data.avatar_url}' width='150' height='150'>
+            </div>
+            <div class = 'text'>
+            <p>Name: ${data.name}</p>
+            <p>Followers: ${data.followers}</p>
+            
+            </div>
+            `
+         })
+        }
+    }
+    
+    xhr.send()
+
+</script>
+</html>

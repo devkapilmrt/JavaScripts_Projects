@@ -1,0 +1,22 @@
+
+.container{
+
+    display: flex;
+    padding-left: 50px;
+    margin: auto;
+    width: 500px;
+    height: 250px;
+    margin: 50px;
+    outline: solid 1px black;
+    display: flex;
+    justify-content: center;
+    
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 1px solid red;
+    
+}
